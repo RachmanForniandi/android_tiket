@@ -6,7 +6,7 @@ require("koneksi.php");
 $response = array();
 
 //cek apakah nilai yang dikirimkan android sudah terisi
-if (isset($_POST['id_asal'])&&isset($_POST['id_tujuan'])&&isset($_POST['tanggal'])) {
+if (isset($_POST['id_asal']) && isset($_POST['id_tujuan'])) {
 	$asal =$_POST['id_asal'];
 	$tujuan =$_POST['id_tujuan'];
 	$tanggal =$_POST['tanggal'];
