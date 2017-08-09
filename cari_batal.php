@@ -24,8 +24,6 @@ if (isset($_POST['id'])&&isset($_POST['nama']&&isset($_POST['username'])) {
 			echo json_encode($response);
 		}if (mysql_num_rows($result)==0) {
 			//gagal update data
-		}{
-			//bila tidak ada member(nilai lbh kecil dari nol)
 			$response["success"]=0;         
 			$response["message"]="ID yang anda cari tidak ditemukan, atau anda tidak pernah memesan dengan ID tersebut.";
 

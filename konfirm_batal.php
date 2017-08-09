@@ -3,7 +3,7 @@ error_reporting(0);
 require("koneksi.php");
 
 //array utk menampung respon dari JSON
-$response = array();
+$respon = array();
 
 //cek apakah nilai yang dikirimkan android sudah terisi
 if (isset($_GET['username'])&&isset($_GET['id']&&isset($_GET['nama'])) {
@@ -12,7 +12,7 @@ if (isset($_GET['username'])&&isset($_GET['id']&&isset($_GET['nama'])) {
 	$nama =$_GET['nama'];
 
 	//query ambil dtaa member berdasarkan id
-	$result= mysql_query("SELECT p.*, j.id, j.kota_asal,j.kota_tujuan,j.tanggal_berangkat FROM pesan AS p,jadwal as j WHERE p.id_member='$username' AND p.id='$id' AND p.nama='$nama' AND j.id=p.id_jadwal");
+	$result= mysql_query("SELECT dp.*, j.id, j.kota_asal,j.kota_tujuan,j.tanggal_berangkat FROM data_pemesanan AS dp,jadwal as j WHERE dp.id_member='$username' AND dp.id='$id' AND dp.nama='$nama' AND j.id = dp.id_jadwal");
 
 	if(!empty($result)){
 		if (mysql_num_rows($result)>0) {
@@ -51,15 +51,15 @@ if (isset($_GET['username'])&&isset($_GET['id']&&isset($_GET['nama'])) {
 				$respon["sukses"]=0;
 				$respon["pesan"]="Gagal Query";
 		//mencetak JSON respon
-			echo json_encode($response);
+			echo json_encode($respon);
 		   }
 		}else{
 			//bila tidak ada member(nilai lbh kecil dari nol)
-			$response["success"]=0;         
-			$response["message"]="Data belum terisi.";
+			$respon["success"]=0;         
+			$respon["message"]="Data belum terisi.";
 
 			//mencetak JSON respon
-			echo json_encode($response);
+			echo json_encode($respon);
 		}
 
 ?>

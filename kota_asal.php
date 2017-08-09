@@ -8,9 +8,9 @@ $response = array();
 $response["asal"]=array();
 
 //Mysql select query
-$hasil= mysql_query("SELECT*FROM kota_asal");
+$result= mysql_query("SELECT * FROM kota_asal");
 
-while($row = mysql_fetch_array($hasil)){
+while($row = mysql_fetch_array($result)){
 	//temporary array to create asal
 		$tmp = array();
 		$tmp["id"]= $row["id"];

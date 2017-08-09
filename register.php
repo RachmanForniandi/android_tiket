@@ -25,15 +25,17 @@ if(empty($_POST['username']) || empty ($_POST['password']) || empty ($_POST['nam
 	$cek_email = mysql_query("SELECT * FROM member WHERE username ='$username'");
 
 		if(mysql_num_rows($cek_email)>0){
-			//jika email telah terdaftar
+		//jika email telah terdaftar
 			$response["success"]= 0;
 			$response["message"]="Email sudah pernah terdaftar.";
 			
 		// memprint/mencetak JSON respon
-		echo json_encode($response);
+			echo json_encode($response);
 		}
-			if(mysql_num_rows($cek_email)==0){
-				//query untuk menambah data member
+
+		if(mysql_num_rows($cek_email)==0){
+		
+		//query untuk menambah data member
 		$result = mysql_query("INSERT INTO member(nama,  alamat, telpon, jenis_kelamin, username, password)VALUES('$nama','$alamat','$jenis_kelamin','$telpon','$username','$password')");
 		
 		if($result){

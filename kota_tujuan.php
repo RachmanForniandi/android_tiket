@@ -8,7 +8,7 @@ $response = array();
 $response["asal"]=array();
 
 //Mysql select query
-$result= mysql_query("SELECT*FROM kota_tujuan");
+$result= mysql_query("SELECT * FROM kota_tujuan");
 
 while($row = mysql_fetch_array($result)){
 	//temporary array to create tujuan
